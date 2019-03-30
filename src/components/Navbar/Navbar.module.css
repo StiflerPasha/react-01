@@ -1,0 +1,19 @@
+.nav {
+    grid-area: n;
+    background-color: orange;
+}
+
+.ul {
+    list-style: none;
+}
+
+.ul li a {
+    font-size: 1.1rem;
+    text-decoration: none;
+    color: azure;
+}
+
+
+.ul li a:hover {
+    color: cadetblue;
+}
