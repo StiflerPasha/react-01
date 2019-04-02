@@ -4,11 +4,11 @@ import UserInfo from './UserInfo/UserInfo';
 import MyPosts from '../Profile/MyPosts/MyPosts'
 
 
-const Profile = () => {
+const Profile = (props) => {
     return (
         <div className={classes.content}>
-            <UserInfo name="Pasha Stifler" date="11.07.1992" city="Moscow" edu="DITB" site="--//--" />
-            <MyPosts />
+            <UserInfo name="Pasha" date="11.07.1992" city="Moscow" edu="DITB" site="--//--" />
+            <MyPosts posts={props.posts}/>
         </div>
     );
 };
