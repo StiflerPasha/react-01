@@ -1,14 +1,15 @@
-.user {
-    margin-top: 10px;
-}
-
-.avatar {
-    width: 100px;
+.img_top {
+    width: 100%;
 }
 
 .info {
-    display: inline-block;
-    margin-left: 100px;
+    display: grid;
+    margin: 50px;
+    grid-template-columns: 30% 1fr;
+}
+
+.info img {
+    width: 150px;
 }
 
 .info ul {

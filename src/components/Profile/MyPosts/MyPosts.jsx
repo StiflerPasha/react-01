@@ -4,15 +4,23 @@ import PostItem from './PostItem/PostItem';
 
 
 const MyPosts = () => {
+    let posts = [
+        {id: "1", msg: "Hi, how are you", like: "12"},
+        {id: "2", msg: "It's my first post", like: "5"},
+        {id: "3", msg: "It's my second post", like: "11"},
+        {id: "4", msg: "It's my third post", like: "87"},
+    ];
+
+    let postsElement = posts.map(p => <PostItem msg={p.msg} like={p.like} />);
+
     return (
         <div className={classes.container}>
-            <h2>My Posts</h2>
-            <textarea name="in_post" id="ta" cols="30" rows="2"></textarea>
+            <h3>My Posts</h3>
+            <textarea cols="50" rows="3" placeholder="Text"/>
             <button>Add post</button>
-            <PostItem msg="Hi, how are you" like="12" />
-            <PostItem msg="It's my first post" like="16" />
+            {postsElement}
         </div>
     );
-}
+};
 
 export default MyPosts
