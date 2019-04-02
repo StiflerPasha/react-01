@@ -1,4 +1,6 @@
-.user {}
+.user {
+    margin-top: 10px;
+}
 
 .avatar {
     width: 100px;

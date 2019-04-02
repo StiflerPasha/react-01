@@ -12,13 +12,17 @@
     margin: 10px 0;
 }
 
-.ul li a {
+.ul a {
     font-size: 1.1rem;
     text-decoration: none;
     color: azure;
 }
 
 
-.ul li a:hover {
+.ul a:hover {
     color: cadetblue;
+}
+
+.ul a.activeLink {
+    color: coral;
 }
