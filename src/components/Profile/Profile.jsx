@@ -7,8 +7,15 @@ import MyPosts from '../Profile/MyPosts/MyPosts'
 const Profile = (props) => {
     return (
         <div className={classes.content}>
-            <UserInfo name="Pasha" date="11.07.1992" city="Moscow" edu="DITB" site="--//--" />
-            <MyPosts posts={props.posts}/>
+            <UserInfo
+                name="Pasha"
+                date="11.07.1992"
+                city="Moscow"
+                edu="DITB"
+                site="--//--" />
+            <MyPosts
+                posts={props.posts}
+                addPost={props.addPost}/>
         </div>
     );
 };

@@ -6,11 +6,17 @@ import PostItem from './PostItem/PostItem';
 const MyPosts = (props) => {
     let postsElement = props.posts.map(p => <PostItem msg={p.msg} like={p.like} />);
 
+    let newPostElement = React.createRef();
+    const addPost = () => {
+        let text = newPostElement.current.value;
+        props.addPost(text);
+    };
+
     return (
         <div className={classes.container}>
             <h3>My Posts</h3>
-            <textarea cols="50" rows="3" placeholder="Text"/>
-            <button>Add post</button>
+            <textarea ref={newPostElement} cols="50" rows="3" placeholder="Text"/>
+            <button onClick={ addPost }>Add post</button>
             {postsElement}
         </div>
     );
