@@ -1,10 +1,6 @@
-.img_top {
-    width: 100%;
-}
-
 .info {
     display: grid;
-    margin: 50px;
+    margin: 50px 50px 150px 50px;
     grid-template-columns: 1fr 2fr;
 }
 

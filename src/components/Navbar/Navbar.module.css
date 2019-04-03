@@ -37,13 +37,15 @@
 .fav_friends {
     margin-bottom: 100px;
     display: flex;
+    flex-wrap: wrap;
     text-align: center;
     color: azure;
     justify-content: space-around;
 }
 
 .fav_friends figure {
-    width: 70px;
+    width: 60px;
+    margin-bottom: 10px;
 }
 
 .fav_friends img {

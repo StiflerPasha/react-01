@@ -4,7 +4,7 @@ import {NavLink} from "react-router-dom";
 
 const Navbar = (props) => {
 
-    let menuElement = props.sideBar.menu.map(m =>
+    let menuElement = props.menu.map(m =>
         <div className={classes.menu_item}>
             <NavLink
                 to={m.menuItem}
@@ -13,7 +13,9 @@ const Navbar = (props) => {
             </NavLink>
         </div>);
 
-    let favFriends = props.sideBar.friends.map(f =>
+    let favFriends = props.friends
+        .filter(f => f.best)
+        .map(f =>
         <figure>
             <img src={f.ava} alt="ava"/>
             <br/>
