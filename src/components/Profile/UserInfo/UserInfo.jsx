@@ -13,12 +13,12 @@ const UserInfo = (props) => {
                      src={avatar} alt="avatar"/>
                 <div>
                     <h2>Name: {props.name}</h2>
-                    <ul>
-                        <li>Date of birth: {props.date}</li>
-                        <li>City: {props.city}</li>
-                        <li>Education: {props.edu}</li>
-                        <li>Web Site: {props.site}</li>
-                    </ul>
+
+                    <div>Date of birth: {props.date}</div>
+                    <div>City: {props.city}</div>
+                    <div>Education: {props.edu}</div>
+                    <div>Web Site: {props.site}</div>
+
                 </div>
             </div>
         </div>

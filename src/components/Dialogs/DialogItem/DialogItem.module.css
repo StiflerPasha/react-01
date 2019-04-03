@@ -1,12 +1,19 @@
-li {
-    list-style: none;
+.dialog_item {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
 }
 
-a {
+.dialog_item a {
     text-decoration: none;
     color: black;
+    margin: 0 5px;
 }
 
-a.active {
+.dialog_item a.active {
     color: goldenrod;
+}
+
+.dialog_item img {
+    width: 40px;
 }

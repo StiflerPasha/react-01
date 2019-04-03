@@ -3,26 +3,49 @@
     background-color: #282B2F;
 }
 
-.ul {
-    list-style: none;
-    margin: 20px 15px;
+.nav h2 {
+    margin: 100px 0 10px 10px;
+    font-size: 40px;
+    font-weight: normal;
+    color: whitesmoke;
+    letter-spacing: 3px;
 }
 
-.ul li {
-    margin: 10px 0;
+.menu_item {
+    margin: 11px 15px;
 }
 
-.ul a {
+.menu_item a {
     font-size: 1.1rem;
-    text-decoration: none;
     color: azure;
+    text-decoration: none;
 }
 
+.menu_item a.activeLink {
+    color: coral;
+}
 
-.ul a:hover {
+.menu_item a:hover {
     color: cadetblue;
 }
 
-.ul a.activeLink {
-    color: coral;
+.menu_item a[href="/settings"] {
+    display: block;
+    margin-top: 30px;
+}
+
+.fav_friends {
+    margin-bottom: 100px;
+    display: flex;
+    text-align: center;
+    color: azure;
+    justify-content: space-around;
+}
+
+.fav_friends figure {
+    width: 70px;
+}
+
+.fav_friends img {
+    width: 40px;
 }

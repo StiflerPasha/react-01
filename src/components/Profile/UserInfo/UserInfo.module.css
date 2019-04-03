@@ -10,12 +10,5 @@
 
 .info img {
     width: 150px;
-}
-
-.info ul {
-    padding: 0;
-}
-
-.info li {
-    list-style: none;
+    margin-right: 50px;
 }
