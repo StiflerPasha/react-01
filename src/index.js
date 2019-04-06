@@ -9,13 +9,14 @@ import React from "react";
 let rerenderEntireTree = (state) => {
     ReactDOM.render(
         <BrowserRouter>
-            <App state={state} dispatch={store.dispatch.bind(store)}/>
+            <App state={state} store={store} dispatch={store.dispatch.bind(store)}/>
         </BrowserRouter>, document.getElementById('root'));
 };
 rerenderEntireTree(store.getState());
 
 store.subscribe(() => {
-    rerenderEntireTree(store.getState())
+    let state = store.getState();
+    rerenderEntireTree(state);
 });
 
 // If you want your app to work offline and load faster, you can change
