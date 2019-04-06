@@ -19,13 +19,16 @@ const App = (props) => {
                 friends={props.state.friends}/>
             <div className='app-wrapper-content'>
                 <Route path='/profile'
-                       render={() => <Profile
+                       render={() =>
+                           <Profile
                            posts={props.state.profilePage}
                            dispatch={props.dispatch}/>}/>
                 <Route path='/dialogs'
-                       render={() => <Dialogs
+                       render={() =>
+                           <Dialogs
                            dialogs={props.state.friends}
-                           messages={props.state.dialogsPage.messages}/>}/>
+                           messages={props.state.dialogsPage}
+                           dispatch={props.dispatch}/>}/>
                 <Route path='/news' render={() => <News/>}/>
                 <Route path='/music' render={() => <Music/>}/>
                 <Route path='/settings' render={() => <Settings/>}/>

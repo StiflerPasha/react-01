@@ -6,7 +6,6 @@ import App from "./App";
 import React from "react";
 
 
-
 let rerenderEntireTree = (state) => {
     ReactDOM.render(
         <BrowserRouter>
