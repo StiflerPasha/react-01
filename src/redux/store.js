@@ -1,7 +1,9 @@
+/*
 import profileReducer from "./profile_reducer";
 import dialogsReducer from "./dialogs_reducer";
 
 let ava_png = "https://png2.kisspng.com/sh/17024a4fdbf0db9c1cc0a38f5d5b3d46/L0KzQYm3VsI3N6Z8i5H0aYP2gLBuTfF3aaVmip9Ac3X1PbT2jgB2fJZ3Rdtsb372PcT2hwR4aaNqRdZudnXvf8Hskr02amQ3T9VsOXPmQYbtV745P2M8SqkDMEG4Q4G3U8U1OGI9S6g3cH7q/kisspng-avatar-user-computer-icons-software-developer-5b327cc9cc15f7.872727801530035401836.png";
+
 
 let store = {
     _state: {
@@ -59,12 +61,7 @@ let store = {
     }
 };
 
-
-
-
-
-
 export default store
 window.store = store;
 window.post = store._state.profilePage.posts;
-window.msg = store._state.dialogsPage;
+window.msg = store._state.dialogsPage;*/
