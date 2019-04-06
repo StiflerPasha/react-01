@@ -14,8 +14,10 @@ const Profile = (props) => {
                 edu="DITB"
                 site="--//--" />
             <MyPosts
-                posts={props.posts}
-                addPost={props.addPost}/>
+                posts={props.posts.posts}
+                addPost={props.addPost}
+                newPostText={props.posts.newPostText}
+                updatePost={props.updatePost} />
         </div>
     );
 };
