@@ -4,17 +4,18 @@ import PostItem from './PostItem/PostItem';
 
 
 const MyPosts = (props) => {
-    let postsElement = props.posts.map(p => <PostItem msg={p.msg} like={p.like} />);
+    let postsElement =
+        props.posts.map(p => <PostItem msg={p.msg} like={p.like}/>);
 
     let newPostElement = React.createRef();
-    const addPost = () => {
-        props.addPost();
 
+    const addPost = () => {
+        props.dispatch({type: "ADD-POST"});
     };
 
     let onPostChange = () => {
         let text = newPostElement.current.value;
-        props.updatePost(text);
+        props.dispatch({type: "UPDATE-NEW-POST-TEXT", newText: text});
     };
 
     return (
@@ -25,8 +26,8 @@ const MyPosts = (props) => {
                       cols="50"
                       rows="3"
                       placeholder="Text"
-                      value={props.newPostText} />
-            <button onClick={ addPost }>Add post</button>
+                      value={props.newPostText}/>
+            <button onClick={addPost}>Add post</button>
             {postsElement}
         </div>
     );

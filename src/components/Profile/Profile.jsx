@@ -15,9 +15,8 @@ const Profile = (props) => {
                 site="--//--" />
             <MyPosts
                 posts={props.posts.posts}
-                addPost={props.addPost}
                 newPostText={props.posts.newPostText}
-                updatePost={props.updatePost} />
+                dispatch={props.dispatch}/>
         </div>
     );
 };
