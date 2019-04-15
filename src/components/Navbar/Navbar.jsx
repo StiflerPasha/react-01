@@ -3,7 +3,6 @@ import classes from './Navbar.module.css';
 import {NavLink} from "react-router-dom";
 
 const Navbar = (props) => {
-
     let menuElement = props.menu.map(m =>
         <div className={classes.menu_item}>
             <NavLink
