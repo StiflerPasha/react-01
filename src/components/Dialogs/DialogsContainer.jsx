@@ -2,7 +2,7 @@ import {sendMessageCreator, updateNewMessageBodyCreator} from "../../redux/dialo
 import Dialogs from "./Dialogs";
 import {connect} from "react-redux";
 
-let mapStateToProps = (state) => {
+const mapStateToProps = (state) => {
     return {
         friends: state.friends,
         messages: state.dialogsPage.messages,
@@ -10,7 +10,7 @@ let mapStateToProps = (state) => {
     }
 };
 
-let mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch) => {
     return {
         updateNewMessageBody: (body) => {
             dispatch(updateNewMessageBodyCreator(body))

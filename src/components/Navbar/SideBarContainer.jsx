@@ -1,14 +1,14 @@
 import {connect} from "react-redux";
 import Navbar from "./Navbar";
 
-let mapStateToProps = (state) => {
+const mapStateToProps = (state) => {
     return {
         menu: state.sideBar.menu,
         friends: state.friends,
     }
 };
 
-let mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch) => {
     return {}
 };
 
