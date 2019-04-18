@@ -5,7 +5,7 @@ import PostItem from './PostItem/PostItem';
 
 const MyPosts = (props) => {
     let postsElement =
-        props.posts.map(p => <PostItem msg={p.msg} like={p.like}/>);
+        props.posts.map(p => <PostItem key={p.id} msg={p.msg} like={p.like}/>);
 
     let newPostElement = React.createRef();
 

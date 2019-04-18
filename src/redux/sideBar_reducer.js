@@ -1,11 +1,12 @@
 let initialState = {
     menu: [
         {id: 1, menuItem: "/profile", name: "Profile"},
-        {id: 2, menuItem: "/dialogs", name: "Messages"},
-        {id: 3, menuItem: "/news", name: "News"},
-        {id: 4, menuItem: "/music", name: "Music"},
-        {id: 5, menuItem: "/settings", name: "Settings"},
-        {id: 6, menuItem: "/test", name: "It's work"},
+        {id: 2, menuItem: "/friends", name: "Friends"},
+        {id: 3, menuItem: "/dialogs", name: "Messages"},
+        {id: 4, menuItem: "/news", name: "News"},
+        {id: 5, menuItem: "/music", name: "Music"},
+        {id: 6, menuItem: "/settings", name: "Settings"},
+        {id: 7, menuItem: "/users", name: "Users"},
     ],
 };
 
