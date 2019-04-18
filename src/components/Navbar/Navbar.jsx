@@ -4,7 +4,7 @@ import {NavLink} from "react-router-dom";
 
 const Navbar = (props) => {
     let menuElement = props.menu.map(m =>
-        <div className={classes.menu_item}>
+        <div key={m.id} className={classes.menu_item}>
             <NavLink
                 to={m.menuItem}
                 activeClassName={classes.activeLink}
@@ -15,7 +15,7 @@ const Navbar = (props) => {
     let favFriends = props.friends
         .filter(f => f.best)
         .map(f =>
-        <figure>
+        <figure key={f.id}>
             <img src={f.ava} alt="ava"/>
             <br/>
             <figcaption>{f.name}</figcaption>
