@@ -6,7 +6,7 @@ let initialState = {
         {id: 4, menuItem: "/news", name: "News"},
         {id: 5, menuItem: "/music", name: "Music"},
         {id: 6, menuItem: "/settings", name: "Settings"},
-        {id: 7, menuItem: "/test", name: "It's work"},
+        {id: 7, menuItem: "/users", name: "Users"},
     ],
 };
 
