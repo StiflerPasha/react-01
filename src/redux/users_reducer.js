@@ -6,21 +6,7 @@ const SET_USERS = 'SET_USERS';
 
 
 let initialState = {
-    users: []/*[
-        {
-            id: 1, photoURL: photo, followed: true, fullName: 'Pasha S.', status: 'I am a boss',
-            location: {city: 'Donetsk', country: 'Ukraine'}
-        },
-        {
-            id: 2, photoURL: photo, followed: false, fullName: 'Katya V.', status: 'Like a football',
-            location: {city: 'Moscow', country: 'Russia'}
-        },
-        {
-            id: 3, photoURL: photo, followed: true, fullName: 'Abraham D.', status: 'Confused',
-            location: {city: 'Paris', country: 'France'}
-        }
-    ],*/
-
+    users: []
 };
 
 const usersReducer = (state = initialState, action) => {

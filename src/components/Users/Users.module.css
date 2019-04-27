@@ -1,4 +1,6 @@
 .userPhoto {
     width: 70px;
+    height: 70px;
+    border: 1px solid black;
     border-radius: 50%;
 }
