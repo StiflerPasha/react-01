@@ -1,8 +1,8 @@
 import React from 'react';
-import classes from './Navbar.module.css';
+import classes from './SideBar.module.css';
 import {NavLink} from "react-router-dom";
 
-const Navbar = (props) => {
+const SideBar = (props) => {
     let menuElement = props.menu.map(m =>
         <div key={m.id} className={classes.menu_item}>
             <NavLink
@@ -34,4 +34,4 @@ const Navbar = (props) => {
     );
 };
 
-export default Navbar
+export default SideBar
