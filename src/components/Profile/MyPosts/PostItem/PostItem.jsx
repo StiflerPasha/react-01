@@ -1,6 +1,6 @@
 import React from 'react';
 import classes from './PostItem.module.css'
-import ava_post from '../../../../ava_post.jfif'
+import ava_post from '../../../../assets/images/ava_post.jfif'
 
 
 const PostItem = (props) => {

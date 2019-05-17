@@ -8,7 +8,7 @@ import * as axios from "axios";
 class UsersContainer extends React.Component {
 
 	 componentDidMount() {
-			axios.get('https://social-network.samuraijs.com/api/1.0/users')
+			axios.get('https://social-network.samuraijs.com/api/1.0/users?count=5')
 			.then(response => {
 				 this.props.setUsers(response.data.items)
 			});

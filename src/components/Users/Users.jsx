@@ -1,6 +1,6 @@
 import React from 'react';
 import classes from './Users.module.css'
-import photo from '../../ava_post.jfif'
+import photo from '../../assets/images/ava_post.jfif'
 
 
 const Users = ({users, follow, describe}) => {
