@@ -1,4 +1,4 @@
-import ava_png from "../ava.jpg";
+import ava_png from "../assets/images/ava.jpg";
 
 let initialState = [
 		{id: 1, name: "Pasha", ava: ava_png, best: true},
