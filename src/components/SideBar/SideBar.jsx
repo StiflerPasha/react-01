@@ -12,24 +12,24 @@ const SideBar = (props) => {
 				</NavLink>
 		 </div>);
 
-	 let favFriends = props.friends
+	 /*let favFriends = props.friends
 	 .filter(f => f.best)
 	 .map(f =>
 		 <figure key={f.id}>
 				<img src={f.ava} alt="ava"/>
 				<br/>
 				<figcaption>{f.name}</figcaption>
-		 </figure>);
+		 </figure>);*/
 
 	 return (
 		 <div className={classes.nav}>
 				<div>
 					 {menuElement}
 				</div>
-				<h2>Friends</h2>
+				{/*<h2>Friends</h2>
 				<div className={classes.fav_friends}>
 					 {favFriends}
-				</div>
+				</div>*/}
 		 </div>
 	 );
 };

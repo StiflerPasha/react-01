@@ -1,49 +1,65 @@
-//import photo from '../ava_post.jfif'
-
 const FOLLOW = 'FOLLOW';
-const UNFOLLOW = 'UNFOLLOW';
+const DESCRIBE = 'DESCRIBE';
 const SET_USERS = 'SET_USERS';
+const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
+const CHECK_LOADING = 'CHECK_LOADING';
 
 
 let initialState = {
-    users: []
+	 users: [],
+	 pageSize: 5,
+	 totalUsersCount: 54,
+	 currentPage: 1,
+	 isLoading: true
 };
 
 const usersReducer = (state = initialState, action) => {
-    switch (action.type) {
-        case FOLLOW:
-            return {
-                ...state,
-                users: state.users.map(u => {
-                    if (u.id === action.userID) {
-                        return {...u, followed: true}
-                    }
-                    return u;
-                })
-            };
-        case UNFOLLOW:
-            return {
-                ...state,
-                users: state.users.map(u => {
-                    if (u.id === action.userID) {
-                        return {...u, followed: false}
-                    }
-                    return u;
-                })
-            };
-        case SET_USERS:
-            return {
-                ...state,
-                users: [...action.users]
-            };
-        default:
-            return state;
-    }
+	 switch (action.type) {
+			case FOLLOW:
+				 return {
+						...state,
+						users: state.users.map(u => {
+							 if (u.login.uuid === action.userID) {
+									return {...u, followed: true}
+							 }
+							 return u;
+						})
+				 };
+			case DESCRIBE:
+				 return {
+						...state,
+						users: state.users.map(u => {
+							 if (u.login.uuid === action.userID) {
+									return {...u, followed: false}
+							 }
+							 return u;
+						})
+				 };
+			case SET_USERS:
+				 return {
+						...state,
+						users: [...action.users]
+				 };
+			case SET_CURRENT_PAGE:
+				 return {
+						...state,
+						currentPage: action.page
+				 };
+			case CHECK_LOADING:
+				 return {
+						...state,
+						isLoading: action.bool
+				 };
+			default:
+				 return state;
+	 }
 };
 
-export const followAC = (userID) => ({type: FOLLOW, userID});
-export const describeAC = (userID) => ({type: UNFOLLOW, userID});
-export const setUsersAC = (users) => ({type: SET_USERS, users});
+export const follow = (userID) => ({type: FOLLOW, userID});
+export const describe = (userID) => ({type: DESCRIBE, userID});
+export const setUsers = (users) => ({type: SET_USERS, users});
+export const setCurrentPage = (page) => ({type: SET_CURRENT_PAGE, page});
+export const checkLoading = (bool) => ({type: CHECK_LOADING, bool});
 
 
 export default usersReducer;

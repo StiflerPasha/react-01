@@ -1,10 +1,7 @@
-.info {
-    display: grid;
-    margin: 50px 50px 150px 50px;
-    grid-template-columns: 1fr 2fr;
-}
-
-.info img {
-    width: 150px;
-    margin-right: 50px;
+.page_block {
+    box-shadow: 0 1px 0 0 #484B4E, 0 0 0 1px #484B4E;
+    background: #373B3E;
+    border-radius: 4px;
+    margin: 15px 0 0;
+    padding: 15px;
 }

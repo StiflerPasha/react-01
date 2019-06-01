@@ -1,6 +1,6 @@
 let initialState = {
     menu: [
-        {id: 1, menuItem: "/", name: "Profile"},
+        {id: 1, menuItem: "/profile", name: "Profile"},
         {id: 2, menuItem: "/friends", name: "Friends"},
         {id: 3, menuItem: "/dialogs", name: "Messages"},
         {id: 4, menuItem: "/news", name: "News"},
@@ -10,8 +10,7 @@ let initialState = {
     ],
 };
 
-const sideBarReducer = (state = initialState, action) => {
-
+const sideBarReducer = (state = initialState) => {
     return state
 };
 

@@ -10,16 +10,17 @@ const MyPosts = (props) => {
     let newPostElement = React.createRef();
 
     let onAddPost = () => {
-        props.addPost();
+        props.addPostCreator();
     };
 
     let onPostChange = () => {
         let text = newPostElement.current.value;
-        props.updateNewPostText(text);
+        props.updateNewPostTextCreator(text);
     };
 
     return (
-        <div className={classes.container}>
+        <div className={[classes.container,
+           classes.page_block,props.className].join(' ')}>
             <h3>My Posts</h3>
             <textarea onChange={onPostChange}
                       ref={newPostElement}

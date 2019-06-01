@@ -4,3 +4,22 @@
     border: 1px solid black;
     border-radius: 50%;
 }
+
+.userName {
+    text-transform: capitalize;
+}
+
+.userCity a {
+    text-transform: capitalize;
+    text-decoration: none;
+    color: aliceblue;
+}
+
+.pageCount {
+    cursor: pointer;
+}
+
+.activePageCount {
+    font-weight: bolder;
+    color: white;
+}

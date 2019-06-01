@@ -14,10 +14,10 @@ import UsersContainer from "./components/Users/UsersContainer";
 const App = (props) => {
 	 return (
 		 <div className='app-wrapper'>
-				<Header/>
-				<SideBarContainer store={props.store}/>
+				<Header className='app-wrapper-header'/>
+				<SideBarContainer className='app-wrapper-navbar' store={props.store}/>
 				<div className='app-wrapper-content'>
-					 <Route path='/'
+					 <Route path='/profile'
 									exact
 									render={() =>
 										<Profile store={props.store}/>}/>

@@ -1,6 +1,6 @@
 import {connect} from "react-redux";
 import Users from "./Users";
-import {followAC, setUsersAC, describeAC} from "../../redux/users_reducer";
+import {follow, setUsers, describe, setCurrentPage, checkLoading} from "../../redux/users_reducer";
 import React from "react";
 import * as axios from "axios";
 
@@ -8,41 +8,41 @@ import * as axios from "axios";
 class UsersContainer extends React.Component {
 
 	 componentDidMount() {
-			axios.get('https://social-network.samuraijs.com/api/1.0/users?count=5')
+			let {pageSize, currentPage} = this.props;
+			this.props.checkLoading(true);
+			axios.get(`https://randomuser.me/api/?page=${currentPage}&results=${pageSize}&seed=foobar`)
 			.then(response => {
-				 this.props.setUsers(response.data.items)
+				 this.props.setUsers(response.data.results);
+				 this.props.checkLoading(false)
 			});
 	 }
 
+	 onPageCountChanged = (pageNumber) => {
+			this.props.setCurrentPage(pageNumber);
+			this.props.checkLoading(true);
+			axios.get(`https://randomuser.me/api/?page=${pageNumber}&results=${this.props.pageSize}&seed=foobar`)
+			.then(response => {
+				 this.props.setUsers(response.data.results);
+				 this.props.checkLoading(false)
+			});
+	 };
 
 	 render() {
 			return (
-				<Users users={this.props.users}
-							 follow={this.props.follow}
-							 describe={this.props.describe}/>
+				<Users onPageCountChanged={this.onPageCountChanged} {...this.props}/>
 			)
 	 }
 }
 
-
 const mapStateToProps = (state) => {
 	 return {
-			users: state.usersPage.users
+			users: state.usersPage.users,
+			pageSize: state.usersPage.pageSize,
+			totalUsersCount: state.usersPage.totalUsersCount,
+			currentPage: state.usersPage.currentPage,
+			isLoading: state.usersPage.isLoading
 	 }
 };
 
-const mapDispatchToProps = (dispatch) => {
-	 return {
-			follow: (userID) => {
-				 dispatch(followAC(userID));
-			},
-			describe: (userID) => {
-				 dispatch(describeAC(userID));
-			},
-			setUsers: (users) => {
-				 dispatch(setUsersAC(users));
-			},
-	 }
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer);
+export default connect(mapStateToProps,
+	{follow, describe, setUsers, setCurrentPage,checkLoading})(UsersContainer);

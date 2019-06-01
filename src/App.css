@@ -1,22 +1,32 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    min-width: 768px;
-    max-width: 1200px;
-    margin: 0 auto;
+    background-color: #282B2F;
+    color: lightgrey;
 }
 
 .app-wrapper {
+    margin: 0 auto;
+    width: 960px;
     display: grid;
-    grid-template-rows: 50px 1fr;
-    grid-template-columns: 3fr 10fr;
-    grid-template-areas: "h h" "n c";
+    grid-template-columns: 1fr 4fr;
+    grid-template-areas:
+            "h h"
+            "n c";
+}
+
+.app-wrapper-header {
+    grid-area: h;
+}
+
+.app-wrapper-navbar {
+    grid-area: n;
 }
 
 .app-wrapper-content {
     grid-area: c;
-    background-color: slategrey;
 }

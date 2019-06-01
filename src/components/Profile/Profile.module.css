@@ -1,3 +1,26 @@
-.content {
-    padding: 0 10px 10px 10px;
+.profile_page {
+    display: grid;
+    grid-template-columns: 200px 3fr;
+    grid-template-areas:
+            'info data'
+            'contact posts'
+;
+    column-gap: 20px;
+    row-gap: 20px;
+}
+
+.info {
+    grid-area: info;
+}
+
+.data {
+    grid-area: data;
+}
+
+.posts {
+    grid-area: posts;
+}
+
+.contact {
+    grid-area: contact;
 }
