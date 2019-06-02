@@ -7,6 +7,7 @@ const CHECK_LOADING = 'CHECK_LOADING';
 
 let initialState = {
 	 users: [],
+
 	 pageSize: 5,
 	 totalUsersCount: 54,
 	 currentPage: 1,
@@ -48,7 +49,7 @@ const usersReducer = (state = initialState, action) => {
 			case CHECK_LOADING:
 				 return {
 						...state,
-						isLoading: action.bool
+						isLoading: action.isLoading
 				 };
 			default:
 				 return state;
@@ -59,7 +60,7 @@ export const follow = (userID) => ({type: FOLLOW, userID});
 export const describe = (userID) => ({type: DESCRIBE, userID});
 export const setUsers = (users) => ({type: SET_USERS, users});
 export const setCurrentPage = (page) => ({type: SET_CURRENT_PAGE, page});
-export const checkLoading = (bool) => ({type: CHECK_LOADING, bool});
+export const checkLoading = (isLoading) => ({type: CHECK_LOADING, isLoading});
 
 
 export default usersReducer;

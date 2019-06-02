@@ -13,7 +13,8 @@ class UsersContainer extends React.Component {
 			axios.get(`https://randomuser.me/api/?page=${currentPage}&results=${pageSize}&seed=foobar`)
 			.then(response => {
 				 this.props.setUsers(response.data.results);
-				 this.props.checkLoading(false)
+				 this.props.checkLoading(false);
+				 console.log(response.data.results)
 			});
 	 }
 
@@ -45,4 +46,4 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps,
-	{follow, describe, setUsers, setCurrentPage,checkLoading})(UsersContainer);
+	{follow, describe, setUsers, setCurrentPage, checkLoading})(UsersContainer);

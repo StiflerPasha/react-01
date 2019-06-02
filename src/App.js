@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Header from './components/Header/Header';
-import Profile from './components/Profile/Profile';
+import ProfileContainer from './components/Profile/ProfileContainer';
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
@@ -15,15 +15,10 @@ const App = (props) => {
 	 return (
 		 <div className='app-wrapper'>
 				<Header className='app-wrapper-header'/>
-				<SideBarContainer className='app-wrapper-navbar' store={props.store}/>
+				<SideBarContainer className='app-wrapper-navbar'/>
 				<div className='app-wrapper-content'>
-					 <Route path='/profile'
-									exact
-									render={() =>
-										<Profile store={props.store}/>}/>
-					 <Route path='/dialogs'
-									render={() =>
-										<DialogsContainer store={props.store}/>}/>
+					 <Route path='/profile/:id?' render={() => <ProfileContainer />}/>
+					 <Route path='/dialogs' render={() => <DialogsContainer />}/>
 					 <Route path='/news' render={() => <News/>}/>
 					 <Route path='/music' render={() => <Music/>}/>
 					 <Route path='/settings' render={() => <Settings/>}/>
