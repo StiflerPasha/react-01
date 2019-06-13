@@ -2,28 +2,28 @@ import {connect} from "react-redux";
 import Users from "./Users";
 import {follow, setUsers, describe, setCurrentPage, checkLoading} from "../../redux/users_reducer";
 import React from "react";
-import * as axios from "axios";
+import {usersAPI} from "../../api/api";
 
 
 class UsersContainer extends React.Component {
 
 	 componentDidMount() {
-			let {pageSize, currentPage} = this.props;
+			let {currentPage, pageSize} = this.props;
 			this.props.checkLoading(true);
-			axios.get(`https://randomuser.me/api/?page=${currentPage}&results=${pageSize}&seed=foobar`)
-			.then(response => {
-				 this.props.setUsers(response.data.results);
+			usersAPI.getUsers(currentPage, pageSize)
+			.then(users => {
+				 this.props.setUsers(users);
 				 this.props.checkLoading(false);
-				 console.log(response.data.results)
 			});
 	 }
 
 	 onPageCountChanged = (pageNumber) => {
+			let {pageSize} = this.props;
 			this.props.setCurrentPage(pageNumber);
 			this.props.checkLoading(true);
-			axios.get(`https://randomuser.me/api/?page=${pageNumber}&results=${this.props.pageSize}&seed=foobar`)
-			.then(response => {
-				 this.props.setUsers(response.data.results);
+			usersAPI.getUsers(pageNumber, pageSize)
+			.then(users => {
+				 this.props.setUsers(users);
 				 this.props.checkLoading(false)
 			});
 	 };
