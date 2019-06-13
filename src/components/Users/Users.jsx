@@ -10,7 +10,7 @@ const Users = (props) => {
 	 for (let i = 1; i <= pagesCount; i++) pages.push(i);
 
 
-	 let pagination = pages.map((page, i) => (
+	 const pagination = pages.map((page, i) => (
 		 <span key={i}
 					 className={classes.pageCount + " " + (props.currentPage === page ? classes.activePageCount : "")}
 					 onClick={() => props.onPageCountChanged(page)}>
@@ -18,7 +18,7 @@ const Users = (props) => {
 		 </span>
 	 ));
 
-	 let user = props.users.map(u =>
+	 const users = props.users.map(u =>
 		 <div key={u.login.uuid}>
 				<div>
 					 <NavLink to={'/profile/' + u.login.uuid}>
@@ -31,7 +31,6 @@ const Users = (props) => {
 								<button onClick={() => props.describe(u.login.uuid)}
 								>Describe
 								</button> :
-
 								<button onClick={() => props.follow(u.login.uuid)}
 								>Follow
 								</button>}
@@ -42,23 +41,22 @@ const Users = (props) => {
 				<div>Status: {u.status || "Offline"}</div>
 				<div>Birthday: {new Date(u.dob.date).toLocaleDateString()}</div>
 				<div>Country: {u.nat.toLocaleString()}</div>
-				<div className={classes.userCity}>City:
+				<div className={classes.userCity}>
+					 City:
 					 <a href={`https://www.google.com/maps/place/${u.location.city}`}
-							target='_blank'
-					 > {u.location.city}
+							target='_blank' rel="noopener noreferrer">
+							{u.location.city}
 					 </a>
 				</div>
-
 		 </div>
 	 );
 
 	 return (
 		 <>
 				{pagination}
-				{props.isLoading ? <div>Loading</div> : user}
+				{props.isLoading ? <div>Loading</div> : users}
 		 </>
 	 )
-
 };
 
 export default Users

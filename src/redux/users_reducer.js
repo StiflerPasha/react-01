@@ -1,3 +1,5 @@
+import {usersAPI} from "../api/api";
+
 const FOLLOW = 'FOLLOW';
 const DESCRIBE = 'DESCRIBE';
 const SET_USERS = 'SET_USERS';
@@ -7,7 +9,6 @@ const CHECK_LOADING = 'CHECK_LOADING';
 
 let initialState = {
 	 users: [],
-
 	 pageSize: 5,
 	 totalUsersCount: 54,
 	 currentPage: 1,
@@ -62,5 +63,16 @@ export const setUsers = (users) => ({type: SET_USERS, users});
 export const setCurrentPage = (page) => ({type: SET_CURRENT_PAGE, page});
 export const checkLoading = (isLoading) => ({type: CHECK_LOADING, isLoading});
 
+// Thunk middleware
+export const getUsers = (currentPage, pageSize) => {
+	 return (dispatch) => {
+			dispatch(checkLoading(true));
+			usersAPI.getUsers(currentPage, pageSize)
+			.then(users => {
+				 dispatch(setUsers(users));
+				 dispatch(checkLoading(false));
+			});
+	 }
+};
 
 export default usersReducer;

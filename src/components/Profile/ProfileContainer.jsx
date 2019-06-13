@@ -31,7 +31,6 @@ class ProfileContainer extends React.Component {
 										 name={`${name.first} ${name.last}`}
 										 date={dob.date}
 										 city={location.city}
-										 edu="DITB"
 										 site={email}/>
 					 <MyPostsContainer
 						 className={classes.posts}/>
