@@ -3,6 +3,7 @@ import {profileAPI} from "../api";
 const ADD_POST = "ADD-POST";
 const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
 const SET_USER_PROFILE = "SET_USER_PROFILE";
+const IS_PROFILE_LOADING = 'IS_PROFILE_LOADING';
 
 let initialState = {
 	 profile: [],
@@ -10,7 +11,8 @@ let initialState = {
 			{id: 1, msg: "Hi, how are you", like: 12},
 			{id: 2, msg: "It's my first post", like: 5},
 	 ],
-	 newPostText: ""
+	 newPostText: "",
+	 isLoading: true
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -38,8 +40,12 @@ const profileReducer = (state = initialState, action) => {
 						...state,
 						profile: action.newProfile
 				 }
-
 			}
+			case IS_PROFILE_LOADING:
+				 return {
+						...state,
+						isLoading: action.isLoading
+				 };
 			default:
 				 return state;
 	 }
@@ -48,16 +54,16 @@ const profileReducer = (state = initialState, action) => {
 export const addPostCreator = () => ({type: ADD_POST});
 export const updateNewPostTextCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text});
 export const setUserProfile = (newProfile) => ({type: SET_USER_PROFILE, newProfile});
+export const checkLoading = (isLoading) => ({type: IS_PROFILE_LOADING, isLoading});
 
 // Thunk middleware
 export const getProfile = (id) => {
 	 return (dispatch) => {
-			//dispatch(checkLoading(true));
+			dispatch(checkLoading(true));
 			profileAPI.getProfile(id)
 			.then(data => {
 				 dispatch(setUserProfile(data));
-				 //dispatch(setTotalUsersCount(data.totalCount));
-				 //dispatch(checkLoading(false));
+				 dispatch(checkLoading(false));
 			});
 	 }
 };

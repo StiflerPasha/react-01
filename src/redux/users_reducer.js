@@ -5,7 +5,7 @@ const DESCRIBE = 'DESCRIBE';
 const SET_USERS = 'SET_USERS';
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT';
-const CHECK_LOADING = 'CHECK_LOADING';
+const IS_USERS_LOADING = 'IS_USERS_LOADING';
 
 
 let initialState = {
@@ -53,7 +53,7 @@ const usersReducer = (state = initialState, action) => {
 						...state,
 						totalUsersCount: action.count
 				 };
-			case CHECK_LOADING:
+			case IS_USERS_LOADING:
 				 return {
 						...state,
 						isLoading: action.isLoading
@@ -68,7 +68,7 @@ export const describe = (userID) => ({type: DESCRIBE, userID});
 export const setUsers = (users) => ({type: SET_USERS, users});
 export const setCurrentPage = (page) => ({type: SET_CURRENT_PAGE, page});
 export const setTotalUsersCount = (count) => ({type: SET_TOTAL_USERS_COUNT, count});
-export const checkLoading = (isLoading) => ({type: CHECK_LOADING, isLoading});
+export const checkLoading = (isLoading) => ({type: IS_USERS_LOADING, isLoading});
 
 // Thunk middleware
 export const getUsers = (currentPage, pageSize) => {

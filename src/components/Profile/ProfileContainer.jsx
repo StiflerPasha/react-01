@@ -17,23 +17,33 @@ class ProfileContainer extends React.Component {
 			this.props.getProfile(id)
 	 }
 
+	 componentWillReceiveProps(nextProps, nextContext) {
+			if (nextProps.match.params.id !== this.props.match.params.id) {
+				 let id = nextProps.match.params.id;
+				 this.props.getProfile(id)
+			}
+	 }
+
 	 render() {
 			let {fullName, photos} = this.props.profile;
-			return (
-				<div className={classes.profile_page}>
+
+
+			return this.props.isLoading
+				? (<div>Loading</div>)
+				: (<div className={classes.profile_page}>
 					 <UserAvatar className={classes.info}
-											 ava={photos.small || ava}/>
+											 ava={photos.large || ava}/>
 					 <UserInfo className={classes.data}
 										 name={fullName}/>
 					 <MyPostsContainer
 						 className={classes.posts}/>
-				</div>
-			);
+				</div>)
 	 }
 }
 
 const mapStateToProps = (state) => ({
 	 profile: state.profilePage.profile,
+	 isLoading: state.profilePage.isLoading
 });
 
 let WithUrlDataContainerComponent = withRouter(ProfileContainer);
