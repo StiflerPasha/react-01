@@ -5,33 +5,26 @@ import MyPostsContainer from "./MyPosts/MyPostsContainer";
 import UserInfo from "./UserInfo/UserInfo";
 import {connect} from "react-redux";
 import {withRouter} from "react-router-dom";
-import {setUserProfile} from "../../redux/profile_reducer";
+import {getProfile, setUserProfile} from "../../redux/profile_reducer";
+
+import ava from '../../assets/images/ava.jpg'
 
 
 class ProfileContainer extends React.Component {
 
 	 componentDidMount() {
 			let id = this.props.match.params.id;
-			let currentUser = this.props.users.filter(user => user.login.uuid === id);
-			if (currentUser.length === 0) {
-				 this.props.history.push("/profile")
-			} else {
-				 this.props.setUserProfile(...currentUser);
-			}
-
+			this.props.getProfile(id)
 	 }
 
 	 render() {
-			let {name, email, dob, location, picture} = this.props.profile;
+			let {fullName, photos} = this.props.profile;
 			return (
 				<div className={classes.profile_page}>
 					 <UserAvatar className={classes.info}
-											 ava={picture.large}/>
+											 ava={photos.small || ava}/>
 					 <UserInfo className={classes.data}
-										 name={`${name.first} ${name.last}`}
-										 date={dob.date}
-										 city={location.city}
-										 site={email}/>
+										 name={fullName}/>
 					 <MyPostsContainer
 						 className={classes.posts}/>
 				</div>
@@ -41,8 +34,7 @@ class ProfileContainer extends React.Component {
 
 const mapStateToProps = (state) => ({
 	 profile: state.profilePage.profile,
-	 users: state.usersPage.users,
 });
 
 let WithUrlDataContainerComponent = withRouter(ProfileContainer);
-export default connect(mapStateToProps, {setUserProfile})(WithUrlDataContainerComponent)
+export default connect(mapStateToProps, {setUserProfile, getProfile})(WithUrlDataContainerComponent)

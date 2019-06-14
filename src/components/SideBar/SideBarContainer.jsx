@@ -8,10 +8,6 @@ const mapStateToProps = (state) => {
     }
 };
 
-const mapDispatchToProps = (dispatch) => {
-    return {}
-};
-
-const SideBarContainer = connect(mapStateToProps, mapDispatchToProps)(SideBar);
+const SideBarContainer = connect(mapStateToProps)(SideBar);
 
 export default SideBarContainer;

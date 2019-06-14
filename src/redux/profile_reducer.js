@@ -1,31 +1,16 @@
+import {profileAPI} from "../api";
+
 const ADD_POST = "ADD-POST";
 const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
 const SET_USER_PROFILE = "SET_USER_PROFILE";
 
 let initialState = {
-	 profile: {
-			name: {
-				 first: "Pasha",
-				 last: "Stifler"
-			},
-			dob: {
-				 date: "11.07.1992"
-			},
-			email: "pashastifler@gmail.com",
-			location: {
-				 city: "Donetsk"
-			},
-			picture: {
-				 large: "https://whatsism.com/uploads/posts/2018-07/1530544023_n6fgwzftnvg.jpg",
-				 medium: "https://whatsism.com/uploads/posts/2018-07/1530544023_n6fgwzftnvg.jpg",
-				 thumbnail: "https://whatsism.com/uploads/posts/2018-07/1530544023_n6fgwzftnvg.jpg"
-			}
-	 },
+	 profile: [],
 	 posts: [
 			{id: 1, msg: "Hi, how are you", like: 12},
 			{id: 2, msg: "It's my first post", like: 5},
 	 ],
-	 newPostText: "Pasha Stifler"
+	 newPostText: ""
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -61,10 +46,20 @@ const profileReducer = (state = initialState, action) => {
 };
 
 export const addPostCreator = () => ({type: ADD_POST});
-
-export const updateNewPostTextCreator = (text) =>
-	({type: UPDATE_NEW_POST_TEXT, newText: text});
-
+export const updateNewPostTextCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text});
 export const setUserProfile = (newProfile) => ({type: SET_USER_PROFILE, newProfile});
+
+// Thunk middleware
+export const getProfile = (id) => {
+	 return (dispatch) => {
+			//dispatch(checkLoading(true));
+			profileAPI.getProfile(id)
+			.then(data => {
+				 dispatch(setUserProfile(data));
+				 //dispatch(setTotalUsersCount(data.totalCount));
+				 //dispatch(checkLoading(false));
+			});
+	 }
+};
 
 export default profileReducer;

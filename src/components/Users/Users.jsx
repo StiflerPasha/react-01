@@ -19,27 +19,27 @@ const Users = (props) => {
 	 ));
 
 	 const users = props.users.map(u =>
-		 <div key={u.login.uuid}>
+		 <div key={u.id}>
 				<div>
-					 <NavLink to={'/profile/' + u.login.uuid}>
-							<img src={u.picture.thumbnail != null ? u.picture.thumbnail : photo}
+					 <NavLink to={'/profile/' + u.id}>
+							<img src={u.photos.small || photo}
 									 className={classes.userPhoto}
 									 alt='User-Ava'/>
 					 </NavLink>
 					 <div>
 							{u.followed ?
-								<button onClick={() => props.describe(u.login.uuid)}
+								<button onClick={() => props.describe(u.id)}
 								>Describe
 								</button> :
-								<button onClick={() => props.follow(u.login.uuid)}
+								<button onClick={() => props.follow(u.id)}
 								>Follow
 								</button>}
 					 </div>
 				</div>
 
-				<div className={classes.userName}>Name: {u.name.first} {u.name.last}</div>
+				<div className={classes.userName}>Name: {u.name}</div>
 				<div>Status: {u.status || "Offline"}</div>
-				<div>Birthday: {new Date(u.dob.date).toLocaleDateString()}</div>
+				{/*<div>Birthday: {new Date(u.dob.date).toLocaleDateString()}</div>
 				<div>Country: {u.nat.toLocaleString()}</div>
 				<div className={classes.userCity}>
 					 City:
@@ -47,7 +47,7 @@ const Users = (props) => {
 							target='_blank' rel="noopener noreferrer">
 							{u.location.city}
 					 </a>
-				</div>
+				</div>*/}
 		 </div>
 	 );
 
