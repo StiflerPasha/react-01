@@ -7,15 +7,13 @@ const MyPosts = (props) => {
     let postsElement =
         props.posts.map(p => <PostItem key={p.id} msg={p.msg} like={p.like}/>);
 
-    let newPostElement = React.createRef();
-
     let onAddPost = () => {
-        props.addPostCreator();
+        props.addPost();
     };
 
-    let onPostChange = () => {
-        let text = newPostElement.current.value;
-        props.updateNewPostTextCreator(text);
+    let onPostChange = (event) => {
+        let text = event.target.value;
+        props.updateNewPostText(text);
     };
 
     return (
@@ -23,7 +21,6 @@ const MyPosts = (props) => {
            classes.page_block,props.className].join(' ')}>
             <h3>My Posts</h3>
             <textarea onChange={onPostChange}
-                      ref={newPostElement}
                       cols="50"
                       rows="3"
                       placeholder="Text"
