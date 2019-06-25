@@ -2,6 +2,7 @@ import React from 'react';
 import classes from './Users.module.css'
 import photo from '../../assets/images/ava_post.jfif'
 import {NavLink} from "react-router-dom";
+import {useSelector} from 'react-redux'
 
 
 const Users = (props) => {
@@ -51,8 +52,12 @@ const Users = (props) => {
 		 </div>
 	 );
 
+
+	 const usersCount = useSelector(state => state.usersPage.totalUsersCount);
+
 	 return (
 		 <>
+				<div>{usersCount}</div>
 				{pagination}
 				{props.isLoading ? <div>Loading</div> : users}
 		 </>
