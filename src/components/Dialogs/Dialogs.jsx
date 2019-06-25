@@ -2,19 +2,21 @@ import React from "react";
 import classes from "./Dialogs.module.css";
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message"
+import photo from "../../assets/images/ava.jpg"
 
 const Dialogs = (props) => {
 
-	 let dialogsElements = props.friends
-		 .map(d => <DialogItem key={d.id} id={d.id} name={d.name} ava={d.ava}/>);
-	 let messagesElements = props.messages
+	 const dialogsElements = props.friends
+		 .map(d => <DialogItem key={d.id} id={d.id} name={d.name} ava={d.photos.small || photo}/>);
+
+	 const messagesElements = props.messages
 		 .map(m => <Message key={m.id} msg={m.msg}/>);
 
-	 let onSendMessageClick = () => {
+	 const onSendMessageClick = () => {
 			props.sendMessage();
 	 };
 
-	 let onNewMessageChange = (event) => {
+	 const onNewMessageChange = (event) => {
 			let body = event.currentTarget.value;
 			props.updateNewMessageBody(body);
 	 };
