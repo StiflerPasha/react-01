@@ -12,7 +12,7 @@ let reducers = combineReducers({
     profilePage: profileReducer,
     dialogsPage: dialogsReducer,
     sideBar: sideBarReducer,
-    friends: friendsReducer,
+    friendsPage: friendsReducer,
     usersPage: usersReducer,
     auth: authReducer
 });

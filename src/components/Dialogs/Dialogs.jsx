@@ -11,12 +11,12 @@ const Dialogs = (props) => {
 		 .map(m => <Message key={m.id} msg={m.msg}/>);
 
 	 let onSendMessageClick = () => {
-			props.sendMessageCreator();
+			props.sendMessage();
 	 };
 
 	 let onNewMessageChange = (event) => {
 			let body = event.currentTarget.value;
-			props.updateNewMessageBodyCreator(body);
+			props.updateNewMessageBody(body);
 	 };
 
 	 return (
