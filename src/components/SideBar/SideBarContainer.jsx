@@ -4,7 +4,7 @@ import SideBar from "./SideBar";
 const mapStateToProps = (state) => {
     return {
         menu: state.sideBar.menu,
-        friends: state.friends,
+        /*friends: state.friends,*/
     }
 };
 
