@@ -30,7 +30,10 @@ const Friends = ({friends}) => {
 
 	 return (
 		 <>
-				<p>Hello Friends</p>
+				{friends.length > 0 ?
+					<p>Hello Friends</p> :
+					<code>Follow to some users at 'Users' tab, then return to 'Friends' (its only for tests)</code>
+				}
 				{showFriends}
 		 </>
 	 );
