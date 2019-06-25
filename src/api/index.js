@@ -16,15 +16,15 @@ export const usersAPI = {
 };
 
 export const profileAPI = {
-	 getProfile(id) {
-			return instance.get(`profile/${id}`)
-			.then(response => response.data)
+	 async getProfile(id) {
+			let response = await instance.get(`profile/${id}`);
+			return response.data
 	 },
 };
 
 export const authAPI = {
-	 getAuth() {
-			return instance.get(`auth/me`)
-			.then(response => response.data)
+	 async getAuth() {
+			let response = await instance.get(`auth/me`);
+			return response.data
 	 },
 };
