@@ -1,18 +1,20 @@
-import ava_png from "../assets/images/ava.jpg";
+const GET_FOLLOWED_USERS = 'GET_FOLLOWED_USERS';
 
-let initialState = [
-		{id: 1, name: "Pasha", ava: ava_png, best: true},
-		{id: 2, name: "Andrey", ava: ava_png, best: false},
-		{id: 3, name: "John", ava: ava_png, best: false},
-		{id: 4, name: "Sasha", ava: ava_png, best: false},
-		{id: 5, name: "Smith", ava: ava_png, best: true},
-		{id: 6, name: "Valera", ava: ava_png, best: false},
-		{id: 7, name: "Yana", ava: ava_png, best: true},
-];
+let initialState = {
+	 friends: null
+};
 
 const friendsReducer = (state = initialState, action) => {
-
-		return state
+	 switch (action.type) {
+			case GET_FOLLOWED_USERS:
+				 return {
+						...state, friends: action.friends
+				 };
+			default:
+				 return state;
+	 }
 };
+
+export const getFollowedUsers = (friends) => ({type: GET_FOLLOWED_USERS, friends});
 
 export default friendsReducer
