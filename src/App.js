@@ -18,6 +18,7 @@ const App = () => {
 				<HeaderContainer className='app-wrapper-header'/>
 				<SideBarContainer className='app-wrapper-navbar'/>
 				<div className='app-wrapper-content'>
+					 <Route exact path='/' render={() => <ProfileContainer defaultId={1154} />}/>
 					 <Route path='/profile/:id?' render={() => <ProfileContainer />}/>
 					 <Route path='/friends' render={() => <FriendsContainer />}/>
 					 <Route path='/dialogs' render={() => <DialogsContainer />}/>

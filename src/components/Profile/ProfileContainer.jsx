@@ -13,7 +13,7 @@ import ava from '../../assets/images/ava.jpg'
 class ProfileContainer extends React.Component {
 
 	 componentDidMount() {
-			let id = this.props.match.params.id;
+			let id = this.props.match.params.id || this.props.defaultId;
 			this.props.getProfile(id)
 	 }
 
