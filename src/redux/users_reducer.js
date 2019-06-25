@@ -1,5 +1,6 @@
 import {usersAPI} from "../api";
 
+//Actions Constants
 const FOLLOW = 'FOLLOW';
 const DESCRIBE = 'DESCRIBE';
 const SET_USERS = 'SET_USERS';
@@ -7,7 +8,7 @@ const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT';
 const IS_USERS_LOADING = 'IS_USERS_LOADING';
 
-
+//State
 let initialState = {
 	 users: [],
 	 pageSize: 5,
@@ -15,6 +16,7 @@ let initialState = {
 	 currentPage: 1,
 	 isLoading: true
 };
+
 
 const usersReducer = (state = initialState, action) => {
 	 switch (action.type) {
@@ -63,6 +65,7 @@ const usersReducer = (state = initialState, action) => {
 	 }
 };
 
+//Actions
 export const follow = (userID) => ({type: FOLLOW, userID});
 export const describe = (userID) => ({type: DESCRIBE, userID});
 export const setUsers = (users) => ({type: SET_USERS, users});

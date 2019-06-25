@@ -51,8 +51,8 @@ const profileReducer = (state = initialState, action) => {
 	 }
 };
 
-export const addPostCreator = () => ({type: ADD_POST});
-export const updateNewPostTextCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text});
+export const addPost = () => ({type: ADD_POST});
+export const updateNewPostText = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text});
 export const setUserProfile = (newProfile) => ({type: SET_USER_PROFILE, newProfile});
 export const checkLoading = (isLoading) => ({type: IS_PROFILE_LOADING, isLoading});
 
